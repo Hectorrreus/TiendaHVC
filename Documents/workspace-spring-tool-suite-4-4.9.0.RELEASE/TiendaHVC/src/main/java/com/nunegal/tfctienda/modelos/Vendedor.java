@@ -22,13 +22,14 @@ public class Vendedor implements Serializable{
 	Date fecha_nacimiento;
 	String contraseña;
 	String telefono;
+	String beneficio;
 	
 	
 	public Vendedor() {
 		
 	}
 	public Vendedor(String dni_vendedor, String nombre, String apellidos, String correo, Date fecha_nacimiento, String contraseña,
-			String telefono) {
+			String telefono, String beneficio) {
 		
 		this.dni_vendedor = dni_vendedor;
 		this.nombre = nombre;
@@ -37,13 +38,63 @@ public class Vendedor implements Serializable{
 		this.fecha_nacimiento = fecha_nacimiento;
 		this.contraseña = contraseña;
 		this.telefono = telefono;
+		this.beneficio=beneficio;
 		
+	}
+	public String getDni_vendedor() {
+		return dni_vendedor;
+	}
+	public void setDni_vendedor(String dni_vendedor) {
+		this.dni_vendedor = dni_vendedor;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getApellidos() {
+		return apellidos;
+	}
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
+	public String getCorreo() {
+		return correo;
+	}
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+	public Date getFecha_nacimiento() {
+		return fecha_nacimiento;
+	}
+	public void setFecha_nacimiento(Date fecha_nacimiento) {
+		this.fecha_nacimiento = fecha_nacimiento;
+	}
+	public String getContraseña() {
+		return contraseña;
+	}
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
+	}
+	public String getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+	public String getBeneficio() {
+		return beneficio;
+	}
+	public void setBeneficio(String beneficio) {
+		this.beneficio = beneficio;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((apellidos == null) ? 0 : apellidos.hashCode());
+		result = prime * result + ((beneficio == null) ? 0 : beneficio.hashCode());
 		result = prime * result + ((contraseña == null) ? 0 : contraseña.hashCode());
 		result = prime * result + ((correo == null) ? 0 : correo.hashCode());
 		result = prime * result + ((dni_vendedor == null) ? 0 : dni_vendedor.hashCode());
@@ -65,6 +116,11 @@ public class Vendedor implements Serializable{
 			if (other.apellidos != null)
 				return false;
 		} else if (!apellidos.equals(other.apellidos))
+			return false;
+		if (beneficio == null) {
+			if (other.beneficio != null)
+				return false;
+		} else if (!beneficio.equals(other.beneficio))
 			return false;
 		if (contraseña == null) {
 			if (other.contraseña != null)
@@ -98,53 +154,11 @@ public class Vendedor implements Serializable{
 			return false;
 		return true;
 	}
-	public String getDni_cliente() {
-		return dni_vendedor;
-	}
-	public void setDni_cliente(String dni_cliente) {
-		this.dni_vendedor = dni_cliente;
-	}
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public String getApellidos() {
-		return apellidos;
-	}
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
-	}
-	public String getCorreo() {
-		return correo;
-	}
-	public void setCorreo(String correo) {
-		this.correo = correo;
-	}
-	public String getContraseña() {
-		return contraseña;
-	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
-	}
-	public String getTelefono() {
-		return telefono;
-	}
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
-	public Date getFecha_nacimiento() {
-		return fecha_nacimiento;
-	}
-	public void setFecha_nacimiento(Date fechanacimiento) {
-		this.fecha_nacimiento = fechanacimiento;
-	}
 	@Override
 	public String toString() {
-		return "Vendedor [dni_vendedor=" + dni_vendedor + ", nombre=" + nombre + ", apellidos=" + apellidos + ", correo="
-				+ correo + ", contraseña=" + contraseña + ", telefono=" + telefono + ", fechanacimiento="
-				+ fecha_nacimiento + "]";
+		return "Vendedor [dni_vendedor=" + dni_vendedor + ", nombre=" + nombre + ", apellidos=" + apellidos
+				+ ", correo=" + correo + ", fecha_nacimiento=" + fecha_nacimiento + ", contraseña=" + contraseña
+				+ ", telefono=" + telefono + ", beneficio=" + beneficio + "]";
 	}
 	
 	
