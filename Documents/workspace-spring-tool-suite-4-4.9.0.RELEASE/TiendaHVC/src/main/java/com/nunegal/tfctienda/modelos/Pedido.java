@@ -23,15 +23,15 @@ public class Pedido implements Serializable {
 	Date fecha;
 	Float precio_final;
 	
-	//@ManyToOne(targetEntity=com.nunegal.tfctienda.modelos.Cliente.class)
-	//@JoinColumn(name = "dni_cliente", nullable = false, updatable = false)
-	String dni_cliente;
+	//@ManyToOne(targetEntity=com.nunegal.tfctienda.modelos.usuario.class)
+	//@JoinColumn(name = "dni_usuario", nullable = false, updatable = false)
+	String dni_usuario;
 	
 		
-	public Pedido(Date fecha, float precio_final, String dni_cliente) {
+	public Pedido(Date fecha, float precio_final, String dni_usuario) {
 		this.fecha = fecha;
 		this.precio_final = precio_final;
-		this.dni_cliente = dni_cliente;
+		this.dni_usuario = dni_usuario;
 	}
 	
 	public Pedido() {
@@ -56,17 +56,17 @@ public class Pedido implements Serializable {
 	public void setPrecio_final(Float precio_final) {
 		this.precio_final = precio_final;
 	}
-	public String getDni_cliente() {
-		return dni_cliente;
+	public String getDni_usuario() {
+		return dni_usuario;
 	}
-	public void setDni_cliente(String dni_cliente) {
-		this.dni_cliente = dni_cliente;
+	public void setDni_usuario(String dni_usuario) {
+		this.dni_usuario = dni_usuario;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((dni_cliente == null) ? 0 : dni_cliente.hashCode());
+		result = prime * result + ((dni_usuario == null) ? 0 : dni_usuario.hashCode());
 		result = prime * result + ((fecha == null) ? 0 : fecha.hashCode());
 		result = prime * result + id_pedido;
 		result = prime * result + ((precio_final == null) ? 0 : precio_final.hashCode());
@@ -81,10 +81,10 @@ public class Pedido implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Pedido other = (Pedido) obj;
-		if (dni_cliente == null) {
-			if (other.dni_cliente != null)
+		if (dni_usuario == null) {
+			if (other.dni_usuario != null)
 				return false;
-		} else if (!dni_cliente.equals(other.dni_cliente))
+		} else if (!dni_usuario.equals(other.dni_usuario))
 			return false;
 		if (fecha == null) {
 			if (other.fecha != null)
@@ -103,7 +103,7 @@ public class Pedido implements Serializable {
 	@Override
 	public String toString() {
 		return "Pedido [id_pedido=" + id_pedido + ", fecha=" + fecha + ", precio_final=" + precio_final
-				+ ", dni_cliente=" + dni_cliente + "]";
+				+ ", dni_usuario=" + dni_usuario + "]";
 	}
 	
 	

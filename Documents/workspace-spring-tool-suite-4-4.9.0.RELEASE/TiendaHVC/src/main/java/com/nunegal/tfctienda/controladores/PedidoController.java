@@ -51,7 +51,7 @@ public class PedidoController {
 		}
 	}
 	
-	@RequestMapping(value="/dni/{dni_cliente}")
+	@RequestMapping(value="/dni/{dni_usuario}")
 	public ResponseEntity<Pedido> getPedidoByDni (@PathVariable("id_pedido") int id_pedido) {
 		Optional<Pedido> optionalPedido = pedidoRepository.findById(id_pedido);
 		if(optionalPedido.isPresent()) {

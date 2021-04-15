@@ -25,9 +25,9 @@ public class Direccion_entrega implements Serializable {
 	int id_direccion;
 	
 	
-	//@ManyToOne(targetEntity=com.nunegal.tfctienda.modelos.Cliente.class)
-	//@JoinColumn(name = "dni_cliente", nullable = false)
-	String dni_cliente;
+	//@ManyToOne(targetEntity=com.nunegal.tfctienda.modelos.usuario.class)
+	//@JoinColumn(name = "dni_usuario", nullable = false)
+	String dni_usuario;
 	
 	String pais;
 	String provincia;
@@ -36,11 +36,11 @@ public class Direccion_entrega implements Serializable {
 	String calle;
 	String numero;
 	
-	public Direccion_entrega(String dni_cliente, String pais, String provincia,
+	public Direccion_entrega(String dni_usuario, String pais, String provincia,
 			String ciudad, String codigopostal, String calle, String numero) {
 		super();
 		//this.id_direccion = (Integer) null;
-		this.dni_cliente = dni_cliente;
+		this.dni_usuario = dni_usuario;
 		this.pais = pais;
 		this.provincia = provincia;
 		this.ciudad = ciudad;
@@ -58,11 +58,11 @@ public class Direccion_entrega implements Serializable {
 	public void setId_direccionesentrega(int id_direccionesentrega) {
 		this.id_direccion= id_direccionesentrega;
 	}
-	public String getDniCliente() {
-		return dni_cliente;
+	public String getDniusuario() {
+		return dni_usuario;
 	}
-	public void setDni_Cliente(String dni_cliente) {
-		this.dni_cliente = dni_cliente;
+	public void setDni_usuario(String dni_usuario) {
+		this.dni_usuario = dni_usuario;
 	}
 	public String getPais() {
 		return pais;
@@ -107,7 +107,7 @@ public class Direccion_entrega implements Serializable {
 		result = prime * result + ((calle == null) ? 0 : calle.hashCode());
 		result = prime * result + ((ciudad == null) ? 0 : ciudad.hashCode());
 		result = prime * result + ((codigopostal == null) ? 0 : codigopostal.hashCode());
-		result = prime * result + ((dni_cliente == null) ? 0 : dni_cliente.hashCode());
+		result = prime * result + ((dni_usuario == null) ? 0 : dni_usuario.hashCode());
 		result = prime * result + id_direccion;
 		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
 		result = prime * result + ((pais == null) ? 0 : pais.hashCode());
@@ -138,10 +138,10 @@ public class Direccion_entrega implements Serializable {
 				return false;
 		} else if (!codigopostal.equals(other.codigopostal))
 			return false;
-		if (dni_cliente == null) {
-			if (other.dni_cliente != null)
+		if (dni_usuario == null) {
+			if (other.dni_usuario != null)
 				return false;
-		} else if (!dni_cliente.equals(other.dni_cliente))
+		} else if (!dni_usuario.equals(other.dni_usuario))
 			return false;
 		if (id_direccion!= other.id_direccion)
 			return false;
@@ -164,7 +164,7 @@ public class Direccion_entrega implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Direcciones_entrega [id_direccionesentrega=" + id_direccion+ ", dni_cliente=" + dni_cliente
+		return "Direcciones_entrega [id_direccionesentrega=" + id_direccion+ ", dni_usuario=" + dni_usuario
 				+ ", pais=" + pais + ", provincia=" + provincia + ", ciudad=" + ciudad + ", codigopostal="
 				+ codigopostal + ", calle=" + calle + ", numero=" + numero + "]";
 	}
