@@ -12,8 +12,8 @@ public interface DireccionEntregaRepository extends JpaRepository<Direccion_entr
 	@Query("select d from Direccion_entrega d where d.id_direccion like %?1")
 	Direccion_entrega findById(String id_direccion);
 	
-	@Query("select d from Direccion_entrega d where d.dni_cliente like %?1")
-	List <Direccion_entrega> findByDni_cliente(String dni_cliente);
+	@Query("select d from Direccion_entrega d where d.dni_usuario like %?1")
+	List <Direccion_entrega> findByDni_cliente(String dni_usuario);
 	
 	@Query("select d from Direccion_entrega d where d.pais like %?1")
 	List <Direccion_entrega> findByPais(String pais);

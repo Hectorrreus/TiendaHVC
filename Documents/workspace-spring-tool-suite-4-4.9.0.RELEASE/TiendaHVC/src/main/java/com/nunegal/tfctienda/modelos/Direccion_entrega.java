@@ -17,7 +17,7 @@ import lombok.AllArgsConstructor;
 
 //@AllArgsConstructor(access = AccessLevel.PACKAGE)
 @Entity
-@Table(name="direcciones_entrega")
+@Table(name="direccion_entrega")
 public class Direccion_entrega implements Serializable {
 
 	@Id

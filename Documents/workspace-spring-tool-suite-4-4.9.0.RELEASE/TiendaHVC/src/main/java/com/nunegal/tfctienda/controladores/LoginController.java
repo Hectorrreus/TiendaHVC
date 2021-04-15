@@ -5,18 +5,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nunegal.tfctienda.repositorios.ClienteRepository;
-import com.nunegal.tfctienda.repositorios.VendedorRepository;
+import com.nunegal.tfctienda.repositorios.UsuarioRepository;
 
 @RequestMapping("/login")
 @RestController
 public class LoginController {
 	
 	@Autowired
-	ClienteRepository clienteRepository;
+	UsuarioRepository usuarioRepository;
 	
-	@Autowired	
-	VendedorRepository vendedorRepository;
 	
 	@RequestMapping(value="hello", method = RequestMethod.GET)
 	public String hello() {

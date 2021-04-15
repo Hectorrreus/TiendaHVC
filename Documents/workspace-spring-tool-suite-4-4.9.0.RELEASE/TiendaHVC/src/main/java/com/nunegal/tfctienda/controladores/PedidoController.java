@@ -28,12 +28,17 @@ public class PedidoController {
 	LineaPedidoRepository lineapedidoRepository;
 	
 	@PostMapping("/registrar")
-	public ResponseEntity<Pedido> crearPedido (@RequestBody Pedido pedido, @RequestBody ArrayList<Linea_pedido> lineaspedido) {
+	public ResponseEntity<Pedido> crearPedido (@RequestBody Pedido pedido) {
 		Pedido newpedido = pedidoRepository.save(pedido);
+		return ResponseEntity.ok(newpedido);
+	}
+	
+	@PostMapping("/registrarLineas")
+	public ResponseEntity<Pedido> crearLineaPedido (@RequestBody ArrayList<Linea_pedido> lineaspedido) {
 		for(int i=0; i<lineaspedido.size(); i++) {
 			lineapedidoRepository.save(lineaspedido.get(i));
 		}
-		return ResponseEntity.ok(newpedido);
+		return ResponseEntity.ok(null);
 	}
 	
 	@RequestMapping(value="/id/{id_pedido}")
@@ -62,5 +67,6 @@ public class PedidoController {
 		lineapedidoRepository.deleteById(id_pedido);
 		return ResponseEntity.ok(null);
 	}
+	
 
 }

@@ -5,19 +5,19 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.nunegal.tfctienda.modelos.Cliente;
+import com.nunegal.tfctienda.modelos.Usuario;
 
 
-public interface ClienteRepository extends JpaRepository<Cliente, String> {
+public interface UsuarioRepository extends JpaRepository<Usuario, String> {
 	
 	@Query("select c from Cliente c where c.nombre like %?1")
-	List <Cliente> findByNombre(String nombre);
+	List <Usuario> findByNombre(String nombre);
 	
 	@Query("select c from Cliente c where c.dni_cliente like %?1")
-	Cliente findByDni_cliente(String dni_cliente);
+	Usuario findByDni_cliente(String dni_cliente);
 	
 	@Query("select c from Cliente c where c.correo like %?1")
-	Cliente findByCorreo(String correo);
+	Usuario findByCorreo(String correo);
 	
 
 }

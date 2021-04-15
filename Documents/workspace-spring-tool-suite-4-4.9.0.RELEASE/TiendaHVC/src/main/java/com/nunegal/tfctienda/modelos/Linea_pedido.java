@@ -4,8 +4,10 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "linea_pedido")
 public class Linea_pedido implements Serializable {
 
 	@Id
@@ -13,16 +15,16 @@ public class Linea_pedido implements Serializable {
 	
 	int id_pedido;
 	
-	int idProducto;
+	int id_producto;
 	int unidades;
 	public Linea_pedido() {
 		super();
 	}
-	public Linea_pedido(int id_lineapedido, int id_pedido, int idProducto, int unidades) {
+	public Linea_pedido(int id_lineapedido, int id_pedido, int id_producto, int unidades) {
 		super();
 		this.id_lineapedido = id_lineapedido;
 		this.id_pedido = id_pedido;
-		this.idProducto = idProducto;
+		this.id_producto = id_producto;
 		this.unidades = unidades;
 	}
 	public int getId_lineapedido() {
@@ -38,10 +40,10 @@ public class Linea_pedido implements Serializable {
 		this.id_pedido = id_pedido;
 	}
 	public int getIdProducto() {
-		return idProducto;
+		return id_producto;
 	}
 	public void setIdProducto(int idProducto) {
-		this.idProducto = idProducto;
+		this.id_producto = idProducto;
 	}
 	public int getUnidades() {
 		return unidades;
@@ -53,7 +55,7 @@ public class Linea_pedido implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + idProducto;
+		result = prime * result + id_producto;
 		result = prime * result + id_lineapedido;
 		result = prime * result + id_pedido;
 		result = prime * result + unidades;
@@ -68,7 +70,7 @@ public class Linea_pedido implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Linea_pedido other = (Linea_pedido) obj;
-		if (idProducto != other.idProducto)
+		if (id_producto != other.id_producto)
 			return false;
 		if (id_lineapedido != other.id_lineapedido)
 			return false;
@@ -81,7 +83,7 @@ public class Linea_pedido implements Serializable {
 	@Override
 	public String toString() {
 		return "Lineas_pedido [id_lineapedido=" + id_lineapedido + ", id_pedido=" + id_pedido + ", idProducto="
-				+ idProducto + ", unidades=" + unidades + "]";
+				+ id_producto + ", unidades=" + unidades + "]";
 	}
 	
 	

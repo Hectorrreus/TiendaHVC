@@ -72,5 +72,15 @@ public class ProductoController {
 		}
 		
 	}
+	
+	@RequestMapping(value="/dni_usuario/{dni_usuario}")
+	public ResponseEntity<List<Producto>> getProductoUsuario (@PathVariable("dni_usuario") String dni_usuario) {
+		Optional<List<Producto>> optionalProducto = Optional.of(productoRepository.findByDniUsuario(dni_usuario));
+		if(optionalProducto.isPresent()) {
+			return ResponseEntity.ok(optionalProducto.get());
+		} else {
+			return ResponseEntity.noContent().build();
+		}
+	}
 
 }
