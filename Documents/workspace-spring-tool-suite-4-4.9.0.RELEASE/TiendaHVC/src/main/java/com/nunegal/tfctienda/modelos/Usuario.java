@@ -12,8 +12,8 @@ import javax.persistence.Table;
 public class Usuario implements Serializable{
 
 	@Id
-	//@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
-	//@JoinColumn(name = "dni_cliente", nullable = false)
+	//@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+	//@JoinColumn(name = "dni_usuario", nullable = false)
 	String dni_usuario;
 	
 	String nombre;

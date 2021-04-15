@@ -40,9 +40,9 @@ public class DireccionEntregaController {
 		}
 	}
 	
-	@RequestMapping(value="/dni_cliente/{dni_cliente}")
-	public ResponseEntity<List<Direccion_entrega>> getDireccionByDni (@PathVariable("dni_cliente") String dni_cliente) {
-		Optional<List<Direccion_entrega>> optionalDireccion = Optional.of(direccionRepository.findByDni_cliente(dni_cliente));
+	@RequestMapping(value="/dni_usuario/{dni_usuario}")
+	public ResponseEntity<List<Direccion_entrega>> getDireccionByDni (@PathVariable("dni_usuario") String dni_usuario) {
+		Optional<List<Direccion_entrega>> optionalDireccion = Optional.of(direccionRepository.findByDni_Usuario(dni_usuario));
 		if(optionalDireccion.isPresent()) {
 			return ResponseEntity.ok(optionalDireccion.get());
 		} else {
