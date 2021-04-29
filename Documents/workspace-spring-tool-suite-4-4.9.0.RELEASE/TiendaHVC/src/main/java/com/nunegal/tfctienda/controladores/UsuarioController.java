@@ -25,13 +25,13 @@ public class UsuarioController {
 	UsuarioRepository usuarioRepository;
 	
 	@PostMapping("/registrar")
-	public ResponseEntity<Usuario> crearusuario(@RequestBody Usuario usuario) {		
+	public ResponseEntity<Usuario> crearUsuario(@RequestBody Usuario usuario) {		
 		Usuario newusuario = usuarioRepository.save(usuario);
 		return ResponseEntity.ok(newusuario);
 	}
 	
 	@RequestMapping(value="/dni/{dni_usuario}")
-	public ResponseEntity<Usuario> getusuarioByDni(@PathVariable("dni_usuario") String dni_usuario){
+	public ResponseEntity<Usuario> getUsuarioByDni(@PathVariable("dni_usuario") String dni_usuario){
 		Optional<Usuario> optionalusuario = usuarioRepository.findById(dni_usuario);
 		if(optionalusuario.isPresent()) {
 			return ResponseEntity.ok(optionalusuario.get());
@@ -42,7 +42,7 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping(value="/correo/{correo}")
-	public ResponseEntity<Usuario> getusuarioByCorreo(@PathVariable("correo") String correo){
+	public ResponseEntity<Usuario> getUsuarioByCorreo(@PathVariable("correo") String correo){
 		Optional<Usuario> optionalusuario = Optional.of(usuarioRepository.findByCorreo(correo));
 		if(optionalusuario.isPresent()) {
 			return ResponseEntity.ok(optionalusuario.get());
@@ -53,13 +53,13 @@ public class UsuarioController {
 	}
 	
 	@DeleteMapping("/borrar")
-	public ResponseEntity<Void> borrarusuario(@PathVariable("dni_usuario") String dni_usuario ) {
+	public ResponseEntity<Void> borrarUsuario(@PathVariable("dni_usuario") String dni_usuario ) {
 		usuarioRepository.deleteById(dni_usuario);
 		return ResponseEntity.ok(null);
 	}
 	
 	@PutMapping("/actualizar")
-	public ResponseEntity<Usuario> actualizarusuario(@RequestBody Usuario usuario) {
+	public ResponseEntity<Usuario> actualizarUsuario(@RequestBody Usuario usuario) {
 		Optional<Usuario> optionalusuario = usuarioRepository.findById(usuario.getDni_usuario());
 		if(optionalusuario.isPresent()) {
 			Usuario usuarioActualizado = optionalusuario.get();

@@ -1,6 +1,7 @@
 package com.nunegal.tfctienda.controladores;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,9 +52,9 @@ public class PedidoController {
 		}
 	}
 	
-	@RequestMapping(value="/dni/{dni_usuario}")
-	public ResponseEntity<Pedido> getPedidoByDni (@PathVariable("id_pedido") int id_pedido) {
-		Optional<Pedido> optionalPedido = pedidoRepository.findById(id_pedido);
+	@RequestMapping(value="/dni_usuario/{dni_usuario}")
+	public ResponseEntity<List<Pedido>> getPedidoByDni (@PathVariable("dni_usuario") String dni_usuario) {
+		Optional<List<Pedido>> optionalPedido = Optional.of(pedidoRepository.findByDni_usuario(dni_usuario));
 		if(optionalPedido.isPresent()) {
 			return ResponseEntity.ok(optionalPedido.get());
 		} else {

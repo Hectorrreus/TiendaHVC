@@ -19,6 +19,12 @@ public interface UsuarioRepository extends JpaRepository<Usuario, String> {
 	@Query("select u from Usuario u where u.correo like %?1")
 	Usuario findByCorreo(String correo);
 	
+	@Query("select u from Usuario u where (u.correo like %?1 AND u.contraseña like %?2)")
+	Usuario inicioSesionCorreo(String correo, String contraseña);
+	
+	//@Query("select u from Usuario u where( u.dni_usuario like %?1 AND u.dni_usuario like %?2)")
+	//Usuario inicioSesionDni(String correo, String dni_usuario);
+	
 
 }
 

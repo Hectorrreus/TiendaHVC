@@ -82,5 +82,15 @@ public class ProductoController {
 			return ResponseEntity.noContent().build();
 		}
 	}
+	
+	@RequestMapping(value="/todo")
+	public ResponseEntity<List<Producto>> getTodosProductos () {
+		Optional<List<Producto>> optionalProducto = Optional.of(productoRepository.findAll());
+		if(optionalProducto.isPresent()) {
+			return ResponseEntity.ok(optionalProducto.get());
+		} else {
+			return ResponseEntity.noContent().build();
+		}
+	}
 
 }
