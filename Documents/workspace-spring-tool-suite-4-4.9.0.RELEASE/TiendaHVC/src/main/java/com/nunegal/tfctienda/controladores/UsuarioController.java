@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nunegal.tfctienda.modelos.Carrito;
 import com.nunegal.tfctienda.modelos.Usuario;
+import com.nunegal.tfctienda.repositorios.CarritoRepository;
 import com.nunegal.tfctienda.repositorios.UsuarioRepository;
 
 @RequestMapping("/usuario")
@@ -24,9 +26,15 @@ public class UsuarioController {
 	@Autowired
 	UsuarioRepository usuarioRepository;
 	
+	@Autowired
+	CarritoRepository carritoRepository;
+			
 	@PostMapping("/registrar")
 	public ResponseEntity<Usuario> crearUsuario(@RequestBody Usuario usuario) {		
 		Usuario newusuario = usuarioRepository.save(usuario);
+		Carrito carrito = new Carrito(usuario.getDni_usuario());
+		carritoRepository.save(carrito);
+		
 		return ResponseEntity.ok(newusuario);
 	}
 	
@@ -43,7 +51,7 @@ public class UsuarioController {
 	
 	@RequestMapping(value="/correo/{correo}")
 	public ResponseEntity<Usuario> getUsuarioByCorreo(@PathVariable("correo") String correo){
-		Optional<Usuario> optionalusuario = Optional.of(usuarioRepository.findByCorreo(correo));
+		Optional<Usuario> optionalusuario = usuarioRepository.findByCorreo(correo);
 		if(optionalusuario.isPresent()) {
 			return ResponseEntity.ok(optionalusuario.get());
 		} else {

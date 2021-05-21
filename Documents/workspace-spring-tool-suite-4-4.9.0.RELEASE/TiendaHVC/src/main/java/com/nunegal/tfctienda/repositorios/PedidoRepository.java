@@ -16,6 +16,6 @@ public interface PedidoRepository extends JpaRepository<Pedido, Integer>{
 	@Query("select p from Pedido p where p.dni_usuario like %?1")
 	List <Pedido> findByDni_usuario(String dni_usuario);
 	
-	@Query("select p from Pedido p where p.dni_usuario like %?1")
+	@Query("select p from Pedido p where p.fecha like %?1")
 	List <Pedido> findByFecha (Date fecha);
 }

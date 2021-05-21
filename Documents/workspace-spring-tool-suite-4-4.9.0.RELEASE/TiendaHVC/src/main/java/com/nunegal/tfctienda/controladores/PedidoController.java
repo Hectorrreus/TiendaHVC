@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nunegal.tfctienda.modelos.Linea_pedido;
 import com.nunegal.tfctienda.modelos.Pedido;
+import com.nunegal.tfctienda.modelos.Producto;
 import com.nunegal.tfctienda.repositorios.LineaPedidoRepository;
 import com.nunegal.tfctienda.repositorios.PedidoRepository;
+import com.nunegal.tfctienda.repositorios.ProductoRepository;
 
 @RequestMapping("/pedido")
 @RestController
@@ -28,9 +30,13 @@ public class PedidoController {
 	@Autowired
 	LineaPedidoRepository lineapedidoRepository;
 	
+	@Autowired
+	ProductoRepository productoRepository;
+	
 	@PostMapping("/registrar")
 	public ResponseEntity<Pedido> crearPedido (@RequestBody Pedido pedido) {
 		Pedido newpedido = pedidoRepository.save(pedido);
+		
 		return ResponseEntity.ok(newpedido);
 	}
 	
@@ -38,6 +44,8 @@ public class PedidoController {
 	public ResponseEntity<Pedido> crearLineaPedido (@RequestBody ArrayList<Linea_pedido> lineaspedido) {
 		for(int i=0; i<lineaspedido.size(); i++) {
 			lineapedidoRepository.save(lineaspedido.get(i));
+			Optional<Producto> p = productoRepository.findById(lineaspedido.get(i).getIdProducto());
+			p.get().setStock(p.get().getStock() - lineaspedido.get(i).getUnidades());
 		}
 		return ResponseEntity.ok(null);
 	}

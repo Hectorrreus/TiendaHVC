@@ -1,6 +1,7 @@
 package com.nunegal.tfctienda.repositorios;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -17,7 +18,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, String> {
 	Usuario findByDni_usuario(String dni_usuario);
 	
 	@Query("select u from Usuario u where u.correo like %?1")
-	Usuario findByCorreo(String correo);
+	Optional<Usuario> findByCorreo(String correo);
 	
 	@Query("select u from Usuario u where (u.correo like %?1 AND u.contraseña like %?2)")
 	Usuario inicioSesionCorreo(String correo, String contraseña);

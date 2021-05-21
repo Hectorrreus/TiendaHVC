@@ -21,6 +21,7 @@ public class Producto implements Serializable {
 	int stock;
 	String lugar_procedencia;
 	String foto;
+	String descripcion;
 	String dni_usuario;
 	
 	public Producto() {
@@ -28,7 +29,7 @@ public class Producto implements Serializable {
 	}
 
 	public Producto(int id_producto, String nombre, Float precio, int stock, String lugar_procedencia, String foto,
-			String dni_usuario) {
+			String descripcion, String dni_usuario) {
 		super();
 		this.id_producto = id_producto;
 		this.nombre = nombre;
@@ -36,6 +37,7 @@ public class Producto implements Serializable {
 		this.stock = stock;
 		this.lugar_procedencia = lugar_procedencia;
 		this.foto = foto;
+		this.descripcion = descripcion;
 		this.dni_usuario = dni_usuario;
 	}
 
@@ -87,6 +89,14 @@ public class Producto implements Serializable {
 		this.foto = foto;
 	}
 
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
 	public String getDni_usuario() {
 		return dni_usuario;
 	}
@@ -99,6 +109,7 @@ public class Producto implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
 		result = prime * result + ((dni_usuario == null) ? 0 : dni_usuario.hashCode());
 		result = prime * result + ((foto == null) ? 0 : foto.hashCode());
 		result = prime * result + id_producto;
@@ -118,6 +129,11 @@ public class Producto implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Producto other = (Producto) obj;
+		if (descripcion == null) {
+			if (other.descripcion != null)
+				return false;
+		} else if (!descripcion.equals(other.descripcion))
+			return false;
 		if (dni_usuario == null) {
 			if (other.dni_usuario != null)
 				return false;
@@ -153,8 +169,13 @@ public class Producto implements Serializable {
 	@Override
 	public String toString() {
 		return "Producto [id_producto=" + id_producto + ", nombre=" + nombre + ", precio=" + precio + ", stock=" + stock
-				+ ", lugar_procedencia=" + lugar_procedencia + ", foto=" + foto + ", dni_usuario=" + dni_usuario + "]";
+				+ ", lugar_procedencia=" + lugar_procedencia + ", foto=" + foto + ", descripcion=" + descripcion
+				+ ", dni_usuario=" + dni_usuario + "]";
 	}
+
+	
+
+	
 
 	
 	
